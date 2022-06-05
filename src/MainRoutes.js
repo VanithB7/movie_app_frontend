@@ -44,8 +44,9 @@ const MainRoutes = ()=> {
                  <Route path='citys/create' element={<CityCreate />} />
                  <Route path='citys/edit/:id' element={<CityEdit />} />
                 {/* genres */}
-                <Route path='genres/create' element={<GenreCreate />} />
                 <Route path='genres' element={<GenreList />} />
+                <Route path='genres/create' element={<GenreCreate />} />
+              
                 <Route path='genres/edit/:id' element={<GenreEdit />} />
                 {/* movies */}
                 <Route path='movies/create' element={<MovieCreate />} />

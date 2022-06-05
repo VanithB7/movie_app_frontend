@@ -8,7 +8,7 @@ import logger from 'redux-logger';
 import reduxThunk from 'redux-thunk';
 import rootReducer from './reducers';
 import {Provider} from 'react-redux';
-import { toast, ToastContainer } from "react-toastify";
+import {  ToastContainer } from "react-toastify";
 import 'react-toastify/dist/ReactToastify.css';
 const middlewares=[reduxThunk];
 if(process.env.NODE_ENV==='development')

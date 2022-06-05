@@ -126,7 +126,7 @@ export const deleteCityRequest=(id)=>async (dispatch,getState)=>{
     });
 
     try{
-const res= await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/citys/${id}`)
+ await axios.delete(`${process.env.REACT_APP_BACKEND_URL}/citys/${id}`)
   
     dispatch({
         type:actionTypes.DELETE_CITY_SUCCESS,
