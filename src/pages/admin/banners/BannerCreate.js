@@ -44,7 +44,11 @@ const postData={
             
                   required
                 />
+ <label className="block text-sm mb-5 mt-5">
+                <span className="text-gray-700 dark:text-gray-400">Preview Banner</span>
+                 </label>
 
+  <img src={banner} className="mb-5 h-36" alt="preview" />
             
               <div className="mt-4">
                  

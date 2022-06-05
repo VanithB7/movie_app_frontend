@@ -59,36 +59,34 @@ const {data} =useSelector(state=>state.shows);
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm justify-center">
                          
-                       {show.name}
+                       {show.theatre_id && show.theatre_id.name}
                          
                         </div>
                       </td>
                      <td className="px-4 py-3">
                         <div className="flex items-center text-sm justify-center">
                          
-                       {show.name}
+                       {show.movie_id && show.movie_id.name}
                          
                         </div>
                       </td>
                        <td className="px-4 py-3">
                         <div className="flex items-center text-sm justify-center">
                          
-                       {show.name}
+                       {show.date}
                          
                         </div>
                       </td>
                        <td className="px-4 py-3">
                         <div className="flex items-center text-sm justify-center">
                          
-                       {show.name}
+                       {show.start_time}
                          
                         </div>
                       </td>
 
                      
-                      <td className="px-4 py-3 text-sm text-center">
-                      {moment(show.createdAt).fromNow()}
-                      </td>
+                     
                       <td className="px-4 py-3">
                         <div className="flex items-center space-x-4 text-sm justify-center">
                                    <Link to={`edit/${show._id}`}>

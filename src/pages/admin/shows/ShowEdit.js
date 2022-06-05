@@ -2,13 +2,21 @@ import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate,useParams } from "react-router-dom";
 import {updateShowRequest,editShowRequest} from '../../../actions/showAction';
+import {getTheatreRequest} from '../../../actions/theatreAction';
+import {getMovieRequest} from '../../../actions/movieAction';
 import {useDispatch,useSelector} from 'react-redux';
 
 const ShowEdit = ()=> {
 const history = useNavigate();
 const dispatch= useDispatch();
-const {shows} =useSelector(state=>state.shows);
 
+   useEffect(()=>{
+ dispatch(getTheatreRequest())
+  dispatch(getMovieRequest())
+    },[]);
+const {show} =useSelector(state=>state.shows);
+const theatres =useSelector(state=>state.theatres);
+const movies =useSelector(state=>state.movies);
 let {id}= useParams();
   useEffect(()=>{
   dispatch(editShowRequest(id))
@@ -16,16 +24,16 @@ let {id}= useParams();
  
     },[]);
     useEffect(()=>{
- if(shows)
+ if(show)
  {
-    setDate(shows.date);
-    setStartTime(shows.startTime);
-    setEndTime(shows.endTime);
-    setTheatre_id(shows.theatre_id);
-    setMovie_id(shows.movie_id);
+    setDate(show.date);
+    setStartTime(show.start_time);
+    setEndTime(show.end_time);
+    setTheatre_id(show.theatre_id);
+    setMovie_id(show.movie_id);
  }
  
-    },[shows]);
+    },[show]);
 const [date, setDate] = useState('');
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
@@ -36,8 +44,8 @@ const handleSubmit= (e)=>{
   e.preventDefault();
 const postData={
   date:date,
-  startTime:startTime,
-  endTime:endTime,
+  start_time:startTime,
+  end_time:endTime,
   theatre_id:theatre_id,
   movie_id:movie_id,
 };
@@ -102,9 +110,12 @@ const postData={
                   onChange={(e)=>setTheatre_id(e.target.value)}
                   required
                 >
-                    <option value='dd'>dd</option>
-                    <option value='dd'>dd</option>
-                    <option value='dd'>dd</option>
+                   <option  value='' ></option>
+                     {theatres.data && theatres.data.map((threatre)=> {
+                        return (
+                            <option  value={threatre._id} key={threatre._id} >{threatre.name}</option>
+                        );
+                    })}
                     </select>
 
               </label>
@@ -116,16 +127,19 @@ const postData={
                   onChange={(e)=>setMovie_id(e.target.value)}
                   required
                 >
-                    <option value='dd'>sss</option>
-                    <option value='dd'></option>
-                    <option value='dd'></option>
+                   <option  value='' ></option>
+                     {movies.data && movies.data.map((movie)=> {
+                        return (
+                            <option  value={movie._id} key={movie._id} >{movie.name}</option>
+                        );
+                    })}
                     </select>
 
               </label>
               <div className="mt-4">
                  
                <button type="submit" className="px-4 py-2 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-[#b2385f] border border-transparent rounded-lg active:bg-[#b2385f] hover:bg-[#b2385f] focus:outline-none focus:shadow-outline-[#b2385f]">
-                  Create
+                  Update
                 </button>
                 
                  <Link to="/admin/shows/">

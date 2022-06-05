@@ -1,11 +1,19 @@
-import { useState } from "react";
+import { useState,useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { useNavigate } from "react-router-dom";
 import {createShowRequest} from '../../../actions/showAction';
-import {useDispatch} from 'react-redux';
+import {getTheatreRequest} from '../../../actions/theatreAction';
+import {getMovieRequest} from '../../../actions/movieAction';
+import {useDispatch,useSelector} from 'react-redux';
 const ShowCreate = ()=> {
-  const history = useNavigate();
-  const dispatch= useDispatch();
+const history = useNavigate();
+const dispatch= useDispatch();
+   useEffect(()=>{
+ dispatch(getTheatreRequest())
+  dispatch(getMovieRequest())
+    },[]);
+const theatres =useSelector(state=>state.theatres);
+const movies =useSelector(state=>state.movies);
 const [date, setDate] = useState('');
 const [startTime, setStartTime] = useState('');
 const [endTime, setEndTime] = useState('');
@@ -15,8 +23,8 @@ const handleSubmit= (e)=>{
   e.preventDefault();
 const postData={
   date:date,
-  startTime:startTime,
-  endTime:endTime,
+  start_time:startTime,
+  end_time:endTime,
   theatre_id:theatre_id,
   movie_id:movie_id,
 };
@@ -81,9 +89,12 @@ const postData={
                   onChange={(e)=>setTheatre_id(e.target.value)}
                   required
                 >
-                    <option value='dd'>dd</option>
-                    <option value='dd'>dd</option>
-                    <option value='dd'>dd</option>
+                   <option  value='' ></option>
+                     {theatres.data && theatres.data.map((genre)=> {
+                        return (
+                            <option  value={genre._id} >{genre.name}</option>
+                        );
+                    })}
                     </select>
 
               </label>
@@ -95,9 +106,12 @@ const postData={
                   onChange={(e)=>setMovie_id(e.target.value)}
                   required
                 >
-                    <option value='dd'>sss</option>
-                    <option value='dd'></option>
-                    <option value='dd'></option>
+                   <option  value='' ></option>
+                     {movies.data && movies.data.map((genre)=> {
+                        return (
+                            <option  value={genre._id} >{genre.name}</option>
+                        );
+                    })}
                     </select>
 
               </label>
