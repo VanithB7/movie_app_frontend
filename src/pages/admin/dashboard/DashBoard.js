@@ -1,5 +1,21 @@
+import { useEffect } from "react";
+import {useDispatch,useSelector} from 'react-redux';
+import {getTheatreRequest} from '../../../actions/theatreAction';
+import {getMovieRequest} from '../../../actions/movieAction';
+import {getShowRequest} from '../../../actions/showAction';
+import {getUserRequest} from '../../../actions/userAction';
 const DashBoard = ()=> {
-
+  const dispatch= useDispatch();
+ useEffect(()=>{
+ dispatch(getTheatreRequest())
+ dispatch(getMovieRequest())
+ dispatch(getShowRequest())
+ dispatch(getUserRequest())
+    },[]);
+    const theatresCount =useSelector(state=>state.theatres);
+    const movieCount =useSelector(state=>state.movies);
+    const userCount =useSelector(state=>state.users);
+    const showCount =useSelector(state=>state.shows);
     return(
          <div className="container px-6 mx-auto grid">
             <h2
@@ -50,7 +66,7 @@ const DashBoard = ()=> {
                   <p
                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    6389
+                    {theatresCount.data.length}
                   </p>
                 </div>
               </div>
@@ -63,9 +79,9 @@ const DashBoard = ()=> {
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
-                      fill-rule="evenodd"
+                   
                       d="M4 4a2 2 0 00-2 2v4a2 2 0 002 2V6h10a2 2 0 00-2-2H4zm2 6a2 2 0 012-2h8a2 2 0 012 2v4a2 2 0 01-2 2H8a2 2 0 01-2-2v-4zm6 4a2 2 0 100-4 2 2 0 000 4z"
-                      clip-rule="evenodd"
+                   
                     ></path>
                   </svg>
                 </div>
@@ -78,7 +94,7 @@ const DashBoard = ()=> {
                   <p
                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    46,760.89
+                    {movieCount.data.length}
                   </p>
                 </div>
               </div>
@@ -104,7 +120,7 @@ const DashBoard = ()=> {
                   <p
                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    376
+                   {userCount.data.length}
                   </p>
                 </div>
               </div>
@@ -117,9 +133,9 @@ const DashBoard = ()=> {
                 >
                   <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
                     <path
-                      fill-rule="evenodd"
+                      
                       d="M18 5v8a2 2 0 01-2 2h-5l-5 4v-4H4a2 2 0 01-2-2V5a2 2 0 012-2h12a2 2 0 012 2zM7 8H5v2h2V8zm2 0h2v2H9V8zm6 0h-2v2h2V8z"
-                      clip-rule="evenodd"
+                
                     ></path>
                   </svg>
                 </div>
@@ -132,7 +148,7 @@ const DashBoard = ()=> {
                   <p
                     className="text-lg font-semibold text-gray-700 dark:text-gray-200"
                   >
-                    35
+                    {showCount.data.length}
                   </p>
                 </div>
               </div>

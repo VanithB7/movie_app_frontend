@@ -57,7 +57,7 @@ const {data} =useSelector(state=>state.banners);
                       <td className="px-4 py-3">
                         <div className="flex items-center text-sm justify-center">
                          
-                      <img src={banner.image_url} className="h-36" alt="preview" />
+                      <img src={banner.image_url} className="h-36 w-48 object-cover" alt="preview" />
                          
                         </div>
                       </td>
