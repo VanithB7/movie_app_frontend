@@ -3,6 +3,9 @@ import cityReducer from './cityReducer';
 import userReducer from './userReducer';
 import bannerReducer from './bannerReducer';
 import genreReducer from './genreReducer';
+import movieReducer from './movieReducer';
+import showReducer from './showReducer';
+import theatreReducer from './theatreReducer';
 import {combineReducers} from 'redux';
 
 const rootReducer= combineReducers({
@@ -10,7 +13,10 @@ const rootReducer= combineReducers({
     citys:cityReducer,
     users:userReducer,
     banners:bannerReducer,
-    genres:genreReducer
+    genres:genreReducer,
+    movies:movieReducer,
+    shows:showReducer,
+    theatres:theatreReducer
 
 });
 

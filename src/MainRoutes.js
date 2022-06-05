@@ -31,7 +31,7 @@ const MainRoutes = ()=> {
     return(
          <Routes>
                 <Route path='/admin/login' element={<Login />}  />
-            <Route path='/admin' element={<Layout />}  >
+                <Route path='/admin' element={<Layout />}  >
               
                  <Route path='dashboard' element={<DashBoard />}  />
                  <Route path='users' element={<UsersList />}  />

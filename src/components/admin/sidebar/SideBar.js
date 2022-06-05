@@ -12,14 +12,14 @@ const SideBar = ()=> {
 <aside className={ menu ?'block  h-screen absolute z-20 w-64 overflow-y-auto bg-white dark:bg-gray-800 flex-shrink-0':'z-20 hidden w-64 overflow-y-auto bg-white dark:bg-gray-800 md:block flex-shrink-0'} >
   <div className="py-4 text-gray-500 dark:text-gray-400">
      <div className="flex  items-center justify-evenly">
-        <Link to="/admin/dashbord" className=" text-lg font-bold text-gray-800 dark:text-gray-200">
+        <Link to="/admin/dashboard" className=" text-lg font-bold text-gray-800 dark:text-gray-200">
         <img className="object-cover w-full h-full logo-height" src="/logo.svg"alt="Office"  />
         </Link>
         <MdOutlineClose color="white" fontSize="2.5em"  className='md:hidden menuclose'  onClick={()=> setMenu(false)}/>
     </div>
     <ul className="mt-6">
       <li className="relative px-6 py-3">
-         <Link to="/admin/dashbord" className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
+         <Link to="/admin/dashboard" className="inline-flex items-center w-full text-sm font-semibold text-gray-800 transition-colors duration-150 hover:text-gray-800 dark:hover:text-gray-200 dark:text-gray-100">
             <svg
                className="w-5 h-5"
                aria-hidden="true"

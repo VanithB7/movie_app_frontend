@@ -11,7 +11,7 @@ export const loginRequestAction=(data,history)=>async (dispatch,getState)=>{
 
     try{
 const res= await axios.post(`${process.env.REACT_APP_BACKEND_URL}/auth/login`,data)
-  
+
     dispatch({
         type:LOGIN_SUCCESS,
         payload: res.data
