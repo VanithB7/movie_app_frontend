@@ -1,6 +1,19 @@
 import { Link } from 'react-router-dom';
+import { useState,useEffect } from "react";
+import {useDispatch,useSelector} from 'react-redux';
+import {getGenreRequest} from '../../../actions/genreAction';
+import {getMovieRequest} from '../../../actions/movieAction';
+import {getTheatreRequest} from '../../../actions/theatreAction';
 const Footer = ()=> {
-      
+    const dispatch= useDispatch();
+    const genres =useSelector(state=>state.genres);
+     const movies =useSelector(state=>state.movies);
+      const theatres =useSelector(state=>state.theatres);
+        useEffect(()=>{
+ dispatch(getGenreRequest())
+ dispatch(getMovieRequest())
+ dispatch(getTheatreRequest())
+    },[]);
     return(
 <>
 <footer className="text-center bg-[#333338]  dark:bg-gray-800 text-purple-200 dark:text-purple-200">
@@ -164,18 +177,17 @@ const Footer = ()=> {
         <h5 className="capitalize font-bold mb-2.5">Upcoming Movies</h5>
 
         <ul className="list-none mb-0">
-          <li>
-            <Link to="/" className="">Link 1</Link>
+          { movies && movies.data.map((movie)=>{
+
+return(
+   <li key={movie._id}>
+            <Link to="/" className="">{movie.name}</Link>
           </li>
-          <li>
-            <Link to="/" className="">Link 2</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 3</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 4</Link>
-          </li>
+)
+
+          })}
+         
+         
         </ul>
       </div>
 
@@ -183,18 +195,15 @@ const Footer = ()=> {
         <h5 className="capitalize font-bold mb-2.5">Movies By Genre</h5>
 
         <ul className="list-none mb-0">
-          <li>
-            <Link to="/" className="">Link 1</Link>
+              { genres && genres.data.map((genre)=>{
+
+return(
+   <li key={genre._id}>
+            <Link to="/" className="">{genre.name}</Link>
           </li>
-          <li>
-            <Link to="/" className="">Link 2</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 3</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 4</Link>
-          </li>
+)
+
+          })}
         </ul>
       </div>
 
@@ -202,18 +211,15 @@ const Footer = ()=> {
         <h5 className="capitalize font-bold mb-2.5">Theatre</h5>
 
         <ul className="list-none mb-0">
-          <li>
-            <Link to="/" className="">Link 1</Link>
+         { theatres && theatres.data.map((theatre)=>{
+
+return(
+   <li key={theatre._id}>
+            <Link to="/" className="">{theatre.name}</Link>
           </li>
-          <li>
-            <Link to="/" className="">Link 2</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 3</Link>
-          </li>
-          <li>
-            <Link to="/" className="">Link 4</Link>
-          </li>
+)
+
+          })}
         </ul>
       </div>
 
