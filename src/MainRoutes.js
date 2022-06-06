@@ -26,10 +26,18 @@ import TheatreEdit from './pages/admin/theatres/TheatreEdit';
 import Login  from './pages/admin/login/Login';
 import Layout from './components/admin/layout/Layout';
 import FourOhFour from './pages/admin/FourOhFour';
-
+import HomePage from './pages/frontend/HomePage';
+import Movies from './pages/frontend/Movies';
+import Theatres from './pages/frontend/Theatres';
+import Events from './pages/frontend/Events';
 const MainRoutes = ()=> {
     return(
          <Routes>
+                <Route path='/' element={<HomePage />}  />
+                <Route path='/movies' element={<Movies />}  />
+                <Route path='/theatres' element={<Theatres />}  />
+                <Route path='/events' element={<Events />}  />
+                
                 <Route path='/admin/login' element={<Login />}  />
                 <Route path='/admin' element={<Layout />}  >
               
