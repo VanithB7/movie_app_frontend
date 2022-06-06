@@ -33,7 +33,7 @@ const Carousel= ()=>{
               return(
 <SwiperSlide key={index} >
     <img  
-        alt="vaishnavi" className="w-full xl:h-[calc(100vh_-_290px)] object-cover" src={carouseldata.image_url} />
+        alt="vaishnavi" className="w-full xl:h-[calc(100vh_-_90px)] object-cover" src={carouseldata.image_url} />
 </SwiperSlide>
               );
           })}

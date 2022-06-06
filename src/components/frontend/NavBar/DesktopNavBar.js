@@ -33,6 +33,11 @@ const DesktopNavBar = ()=> {
            Events
            </Link>
          </li>
+           <li className="relative hover:text-[#ffc107]">
+               <Link to="/admin/login">
+           Login
+           </Link>
+         </li>
          </ul>
       </div>
    </div>

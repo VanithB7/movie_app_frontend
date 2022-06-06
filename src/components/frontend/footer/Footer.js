@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import { useState,useEffect } from "react";
+import { useEffect } from "react";
 import {useDispatch,useSelector} from 'react-redux';
 import {getGenreRequest} from '../../../actions/genreAction';
 import {getMovieRequest} from '../../../actions/movieAction';

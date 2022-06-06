@@ -45,6 +45,12 @@ const MobileNavBar = ()=> {
             <span className="ml-4">Events</span>
          </Link>
       </li>
+       <li className="relative px-6 py-3">
+         <Link to="/admin/login" className="inline-flex items-center w-full text-sm font-semibold transition-colors duration-150  hover:text-[#ffc107]" >
+          
+            <span className="ml-4">Login</span>
+         </Link>
+      </li>
 
    </ul>
 </div>

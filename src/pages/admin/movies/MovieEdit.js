@@ -102,14 +102,18 @@ const postData={
               </label>
                  <label className="block text-sm">
                 <span className="text-gray-700 dark:text-gray-400">Language</span>
-                <input
-                type="text"
+                <select
                   className="block w-full mt-1 px-4 py-2 rounded-md text-sm dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:text-gray-300 dark:focus:shadow-outline-gray form-input"
                    value={language}
                   onChange={(e)=>setLanguage(e.target.value)}
                   required
-                />
-
+                >
+   <option value="">Select</option>
+<option value="Tamil">Tamil</option>
+<option value="Malayalam">Malayalam</option>
+<option value="Telugu">Telugu</option>
+<option value="Kannada">Kannada</option>
+</select>
               </label>
                  <label className="block text-sm">
                 <span className="text-gray-700 dark:text-gray-400">Release Date</span>
